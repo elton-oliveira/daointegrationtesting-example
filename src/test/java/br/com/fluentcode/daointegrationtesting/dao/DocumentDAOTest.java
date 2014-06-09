@@ -23,8 +23,8 @@ public class DocumentDAOTest {
 	public void begin() {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		session = sessionFactory.openSession();
-		session.beginTransaction();
 		dao = new DocumentDAO(session);
+		session.beginTransaction();
 	}
 
 	@After
