@@ -49,6 +49,28 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
+			<!-- JaCoCo is a code coverage library for Java. After the mvn 
+				package the report is generated in target/site/jacoco/index.html -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.1.201405082137</version>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 		<finalName>daointegrationtesting-example</finalName>
 	</build>
