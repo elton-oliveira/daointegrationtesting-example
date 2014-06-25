@@ -3,7 +3,7 @@ package br.com.fluentcode.daointegrationtesting.dao;
 import java.io.Serializable;
 import java.util.List;
 
-import org.hibernate.Query;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 
 public class DAO<T>{
@@ -23,8 +23,8 @@ public class DAO<T>{
 	
 	@SuppressWarnings("unchecked")
 	public List<T> findAll(){
-		Query query = session.createQuery("SELECT e FROM "+classe.getName()+" e");
-		return query.list();
+		Criteria criteria = session.createCriteria(this.classe);
+		return criteria.list();
 	}
 	
 	public void insert(T t){
